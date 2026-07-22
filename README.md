@@ -1,22 +1,70 @@
-# OATF OC Fair Day-of V0.3
+# OATF OC Fair Day-of V0.4
 
-## What changed
+## Cloud backend
 
-- Removed the separate Talent tab
-- Added one combined People screen
-- Added one OC Fair contact card
-- Added all performers and hosts beneath it
-- Added real in-app edit forms for people and the fair contact
-- Added extra bottom spacing so Steven and the final cards remain visible
-- Compressed the Issues screen
-- Reduced navigation to Live, Schedule, Issues, and People
+This version is connected to:
 
-## Update GitHub Pages
+https://oatf-dayof-sync.round-disk-6577.workers.dev
 
-Upload all files in this ZIP to the repository root and overwrite V0.2.
+## Shared across connected devices
 
-After GitHub Pages redeploys:
-1. Refresh twice.
-2. Fully close and reopen the iPhone tab or Home Screen app if V0.2 remains cached.
+- Performer and host contact information
+- OC Fair contact
+- Check-ins
+- Person readiness
+- Stage readiness
+- Completed schedule blocks
+- Schedule delay
+- Issues
+- Handoff notes
 
-All changes save locally on the device being used.
+## Device connection
+
+The first time the app opens, enter:
+
+- the team member's name
+- the private EVENT_PIN stored in Cloudflare
+
+The PIN is stored only in that browser's local/session storage and is sent to the Worker through the `X-Event-Pin` header.
+
+## Sync behavior
+
+- Saves locally immediately
+- Pushes changes to Cloudflare
+- Checks Cloudflare every 5 seconds while open
+- Pulls again when the app returns to the foreground
+- Keeps the last state available if the phone goes offline
+- Attempts to upload pending changes when connectivity returns
+
+## Status indicator
+
+- Green: Synced
+- Yellow: Saving or connecting
+- Gray: Offline
+- Red: Sync error
+
+Tap the sync indicator to retry or view the connected device name.
+
+## Install
+
+Upload every file in this ZIP to the GitHub repository root and overwrite V0.3.
+
+After GitHub Pages finishes deploying:
+
+1. Refresh the browser twice.
+2. Fully close the Safari tab.
+3. If installed on the Home Screen, close and reopen the app.
+4. If V0.3 remains cached, delete the old Home Screen icon and add it again.
+
+## Important test
+
+Use two devices:
+
+1. Connect both using the same event PIN.
+2. Edit one performer on Device A.
+3. Wait up to 5 seconds.
+4. Confirm Device B updates.
+5. Check in a performer on Device B.
+6. Confirm Device A updates.
+
+This version uses whole-state saves. Avoid making two different edits at the exact same second during testing.

@@ -14,7 +14,10 @@
 <div class="app-shell">
 <header class="app-header">
   <div><span class="kicker">OATF · OC FAIR</span><strong id="screenTitle">Live</strong></div>
+  <div class="header-right">
+  <button id="syncStatus" class="sync-status offline" type="button"><i></i><span>Offline</span></button>
   <div class="header-clock"><b id="clock">--:--</b><span id="date">Saturday</span></div>
+</div>
 </header>
 
 <main class="screen-stack">
@@ -132,6 +135,23 @@
 <label>Email<input name="email" inputmode="email" placeholder="Email"></label>
 <div class="dialog-actions"><button value="cancel">Cancel</button><button class="accent" value="default">Save</button></div>
 </form></dialog>
+
+
+<dialog id="loginDialog" class="login-dialog">
+  <form method="dialog" id="loginForm">
+    <span class="kicker">OATF · OC FAIR</span>
+    <h2>Connect This Device</h2>
+    <p>Enter the private event PIN. This device will then share updates with the production team.</p>
+    <label>Your name
+      <input name="deviceName" required maxlength="40" placeholder="Will, Spencer, Daniel…">
+    </label>
+    <label>Event PIN
+      <input name="pin" required inputmode="numeric" autocomplete="off" placeholder="Private PIN">
+    </label>
+    <p id="loginError" class="form-error"></p>
+    <button class="accent login-button" value="default">Connect</button>
+  </form>
+</dialog>
 
 <script src="data.js"></script>
 <script src="app.js"></script>

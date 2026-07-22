@@ -57,18 +57,26 @@
   <div id="scheduleList" class="card-list"></div>
 </section>
 
-<section class="screen compact-screen" data-screen="issues">
-  <div class="screen-toolbar compact-toolbar">
+<section class="screen" data-screen="issues">
+  <div class="screen-toolbar">
     <div><span class="kicker">PRODUCTION</span><h1>Issues</h1></div>
     <button id="newIssue" class="add-button">+</button>
   </div>
-  <div class="issue-shortcuts compact-shortcuts">
-    <button data-issue-type="Late Arrival">Late</button>
-    <button data-issue-type="Missing Music">Music</button>
-    <button data-issue-type="Technical Issue">Tech</button>
-    <button data-issue-type="Medical / Safety">Safety</button>
-  </div>
-  <div id="issueList" class="card-list issue-list"></div>
+
+  <section class="issue-command-card">
+    <span class="section-label">QUICK LOG</span>
+    <div class="issue-shortcuts">
+      <button data-issue-type="Late Arrival">Late Arrival</button>
+      <button data-issue-type="Missing Music">Missing Music</button>
+      <button data-issue-type="Technical Issue">Technical</button>
+      <button data-issue-type="Medical / Safety">Safety</button>
+    </div>
+  </section>
+
+  <section class="issue-open-wrap">
+    <span class="section-label">OPEN ISSUES</span>
+    <div id="issueList" class="card-list issue-list"></div>
+  </section>
 </section>
 
 <section class="screen" data-screen="people">

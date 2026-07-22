@@ -101,3 +101,21 @@ dialog form{max-height:80vh;overflow-y:auto}
   .sync-status{padding:0 7px}
   .sync-status span{display:none}
 }
+
+
+/* V0.5 Issues page parity */
+.screen[data-screen="issues"]{padding-bottom:calc(42px + var(--safe-bottom))}
+.issue-command-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px}
+.issue-command-card .section-label{margin-bottom:10px}
+.issue-shortcuts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0}
+.issue-shortcuts button{min-height:46px;border-radius:13px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:.7rem;font-weight:850;color:#fff}
+.issue-open-wrap{margin-bottom:12px}
+.issue-list{padding-bottom:24px}
+.issue-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;grid-template-columns:10px 1fr auto;gap:11px;align-items:center}
+.issue-card b{display:block;font-size:.88rem}
+.issue-card small{display:block;margin-top:4px;color:var(--muted);font-size:.67rem;line-height:1.4}
+.issue-card button{min-height:38px;padding:0 11px;border-radius:11px;font-size:.65rem}
+.issue-list .empty{background:var(--panel);border:1px dashed var(--line);border-radius:18px;min-height:92px;display:grid;place-items:center;padding:18px;color:var(--muted);font-size:.72rem;text-align:center}
+@media(max-width:360px){
+  .issue-shortcuts{grid-template-columns:1fr}
+}

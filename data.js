@@ -138,7 +138,7 @@ window.OATF_DATA = {
       "type": "glam",
       "subtitle": "2 songs each \u00b7 kings may do 3",
       "talent": "San Diego Kings Club \u00b7 Katalina De Isla \u00b7 Summer Daze",
-      "notes": "Summer Daze is pending."
+      "notes": "Summer Daze pending."
     },
     {
       "id": "thank-you",
@@ -166,7 +166,7 @@ window.OATF_DATA = {
       "phone": "",
       "email": "",
       "arrival": "12:30 PM",
-      "notes": "Story Time at 1:00 PM and 3:15 PM; Glam Show pending"
+      "notes": "Story Time at 1:00 PM and 3:15 PM \u00b7 Glam Show pending"
     },
     {
       "id": "nicole-scotty",
@@ -198,7 +198,7 @@ window.OATF_DATA = {
       "phone": "",
       "email": "",
       "arrival": "4:15 PM",
-      "notes": "Glam Show; 2 songs each, kings may do 3"
+      "notes": "Glam Show \u00b7 kings may do 3 songs"
     },
     {
       "id": "katalina",

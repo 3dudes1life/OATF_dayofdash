@@ -1,19 +1,19 @@
-# OATF OC Fair Day-of Central
+# OATF OC Fair Day-of V0.2
 
-Standalone phone-first production app for OATF at the OC Fair on July 25, 2026.
+A mobile-first production remote for iPhone.
 
-## GitHub Pages
+## Replace V0.1
 
-1. Create a new public repository, such as `oatf-oc-dayof-2026`.
-2. Upload every file in this ZIP to the repository root.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**.
-5. Choose `main` and `/ (root)`, then save.
-6. Open the GitHub Pages URL on the production phone.
+Upload all files in this ZIP to the root of the existing standalone GitHub repository and overwrite the old files.
 
-## Important
+Because this version uses a new service-worker cache, refresh the published site twice after GitHub Pages finishes deploying. On iPhone, fully close the browser tab or Home Screen app and reopen it if the old interface remains visible.
 
-- All check-ins, delays, issues, contacts, and notes save in that device's browser.
-- Different devices do not sync in this first version.
-- Contact information is intentionally editable from the app.
-- Use **Reset Day** only when you want to clear all local event status.
+## V0.2 layout
+
+- Live: current, next, after, delay, ready, complete, and quick issue
+- Schedule: compact interactive run of show
+- Talent: check-in, readiness, calls, texts, email, and editable details
+- Issues: one-tap issue categories
+- Contacts: large call/email cards and handoff notes
+
+All operational changes save locally on that iPhone. Devices do not sync in this version.

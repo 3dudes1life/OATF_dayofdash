@@ -1,9 +1,9 @@
 {
-  "name": "OATF OC Fair Day-of Central",
+  "name": "OATF OC Fair Day-of",
   "short_name": "OATF Day-of",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#09090f",
-  "theme_color": "#09090f",
-  "description": "Phone-first day-of production command center for OATF at the OC Fair."
+  "background_color": "#08080d",
+  "theme_color": "#08080d",
+  "description": "iPhone-first day-of production remote for OATF at the OC Fair."
 }

@@ -2,92 +2,118 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#09090f">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#08080d">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>OATF OC Fair Day-of Central</title>
+<title>OATF Day-of</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="app">
-<header class="topbar">
-  <div><span class="eyebrow">OATF · OC FAIR · JULY 25, 2026</span><h1>Day-of Central</h1></div>
-  <div class="clock"><strong id="clock">--:--</strong><span id="date">Saturday</span></div>
+<div class="app-shell">
+<header class="app-header">
+  <div><span class="kicker">OATF · OC FAIR</span><strong id="screenTitle">Live</strong></div>
+  <div class="header-clock"><b id="clock">--:--</b><span id="date">Saturday</span></div>
 </header>
 
-<main>
-<section class="live-card" id="live">
-  <div class="live-badge">LIVE NOW</div>
-  <div class="live-content">
-    <div><span class="eyebrow" id="liveType">Production</span><h2 id="liveTitle">Loading…</h2><p id="liveSubtitle"></p></div>
-    <div class="live-time"><strong id="liveRange">--</strong><span id="remaining">--</span></div>
+<main class="screen-stack">
+<section class="screen active" data-screen="live">
+  <div class="live-panel">
+    <div class="status-line"><span class="live-dot"></span><b>LIVE NOW</b><span id="delayBadge"></span></div>
+    <span class="type" id="liveType">Production</span>
+    <h1 id="liveTitle">Loading…</h1>
+    <p id="liveSubtitle"></p>
+    <div class="time-row"><strong id="liveRange">--</strong><span id="remaining">--</span></div>
+    <div class="progress-track"><i id="liveProgress"></i></div>
+    <button class="hero-button" id="completeCurrent">Complete Block</button>
+    <div class="quick-row">
+      <button id="readyCurrent">Stage Ready</button>
+      <button id="delayMenu">Delay</button>
+      <button id="quickIssue">Issue</button>
+    </div>
   </div>
-  <div class="actions">
-    <button class="primary" id="completeCurrent">Complete</button>
-    <button id="readyCurrent">Stage Ready</button>
-    <button id="delay5">+5 Min</button>
-    <button id="delay10">+10 Min</button>
+
+  <div class="up-next">
+    <article><span>NEXT</span><h2 id="nextTitle">—</h2><p id="nextMeta">—</p></article>
+    <article><span>AFTER</span><h2 id="afterTitle">—</h2><p id="afterMeta">—</p></article>
+  </div>
+
+  <div class="mini-status">
+    <button data-nav="talent"><span id="checkedCount">0/9</span><small>Talent In</small></button>
+    <button data-nav="issues"><span id="issueCount">0</span><small>Open Issues</small></button>
+    <button data-nav="schedule"><span id="doneCount">0/15</span><small>Complete</small></button>
   </div>
 </section>
 
-<section class="next-grid">
-  <article><span class="eyebrow">NEXT</span><h3 id="nextTitle">—</h3><p id="nextMeta">—</p></article>
-  <article><span class="eyebrow">AFTER</span><h3 id="afterTitle">—</h3><p id="afterMeta">—</p></article>
+<section class="screen" data-screen="schedule">
+  <div class="screen-toolbar">
+    <div><span class="kicker">RUN OF SHOW</span><h1>Schedule</h1></div>
+    <button id="resetDay" class="small-button">Reset</button>
+  </div>
+  <div id="scheduleList" class="card-list"></div>
 </section>
 
-<section class="progress-card">
-  <div><span class="eyebrow">TODAY'S PROGRESS</span><strong id="progressText">0 of 0 complete</strong></div>
-  <div class="progress"><i id="progressBar"></i></div><span id="progressPercent">0%</span>
+<section class="screen" data-screen="talent">
+  <div class="screen-toolbar">
+    <div><span class="kicker">BACKSTAGE</span><h1>Talent</h1></div>
+  </div>
+  <div id="talentList" class="card-list"></div>
 </section>
 
-<section class="panel">
-  <header><div><span class="eyebrow">RUN OF SHOW</span><h3>Full Schedule</h3></div><button class="link" id="resetDay">Reset Day</button></header>
-  <div id="scheduleList" class="schedule-list"></div>
+<section class="screen" data-screen="issues">
+  <div class="screen-toolbar">
+    <div><span class="kicker">PRODUCTION</span><h1>Issues</h1></div>
+    <button id="newIssue" class="add-button">+</button>
+  </div>
+  <div class="issue-shortcuts">
+    <button data-issue-type="Late Arrival">Late</button>
+    <button data-issue-type="Missing Music">Music</button>
+    <button data-issue-type="Technical Issue">Tech</button>
+    <button data-issue-type="Medical / Safety">Safety</button>
+  </div>
+  <div id="issueList" class="card-list"></div>
 </section>
 
-<section class="panel">
-  <header><div><span class="eyebrow">TALENT</span><h3>Check-In & Readiness</h3></div></header>
-  <div id="talentList" class="talent-list"></div>
-</section>
-
-<section class="panel">
-  <header><div><span class="eyebrow">ISSUES</span><h3>Quick Issue Log</h3></div><button class="link" id="newIssue">+ Add</button></header>
-  <div id="issueList" class="issue-list"></div>
-</section>
-
-<section class="panel">
-  <header><div><span class="eyebrow">CONTACTS</span><h3>Quick Contacts</h3></div><button class="link" id="editContacts">Edit</button></header>
-  <div id="contactList" class="contact-list"></div>
-</section>
-
-<section class="panel">
-  <header><div><span class="eyebrow">HANDOFF</span><h3>Production Notes</h3></div></header>
-  <textarea id="handoffNotes" placeholder="What changed, what is blocked, and what should happen next?"></textarea>
-  <div class="actions"><button id="copyHandoff">Copy</button><button class="primary" id="saveHandoff">Save</button></div>
+<section class="screen" data-screen="contacts">
+  <div class="screen-toolbar">
+    <div><span class="kicker">ONE-TAP</span><h1>Contacts</h1></div>
+    <button id="editContacts" class="small-button">Edit</button>
+  </div>
+  <div id="contactList" class="contact-grid"></div>
+  <div class="handoff-card">
+    <span class="kicker">HANDOFF NOTES</span>
+    <textarea id="handoffNotes" placeholder="What changed? What needs attention?"></textarea>
+    <div class="quick-row"><button id="copyHandoff">Copy</button><button class="accent" id="saveHandoff">Save</button></div>
+  </div>
 </section>
 </main>
 
-<nav class="dock">
-  <button data-jump="live">Live</button>
-  <button data-jump="scheduleList">Schedule</button>
-  <button data-jump="talentList">Talent</button>
-  <button data-jump="issueList">Issues</button>
+<nav class="tab-bar">
+  <button class="active" data-tab="live"><span>⌂</span><small>Live</small></button>
+  <button data-tab="schedule"><span>▤</span><small>Schedule</small></button>
+  <button data-tab="talent"><span>★</span><small>Talent</small></button>
+  <button data-tab="issues"><span>!</span><small>Issues</small></button>
+  <button data-tab="contacts"><span>☎</span><small>Contacts</small></button>
 </nav>
 </div>
 
+<dialog id="delayDialog"><form method="dialog">
+<h2>Adjust Schedule</h2><p>Push every remaining block.</p>
+<div class="delay-grid"><button data-delay="5">+5 min</button><button data-delay="10">+10 min</button><button data-delay="15">+15 min</button><button data-delay="-5">-5 min</button></div>
+<button class="close-dialog" value="cancel">Close</button>
+</form></dialog>
+
 <dialog id="issueDialog"><form method="dialog" id="issueForm">
-<h3>Log Production Issue</h3>
-<label>Title<input name="title" required placeholder="What happened?"></label>
-<label>Severity<select name="severity"><option>Watch</option><option>High</option><option>Info</option></select></label>
-<label>Details<textarea name="details" placeholder="Context or next action"></textarea></label>
-<div class="dialog-actions"><button value="cancel">Cancel</button><button value="default" class="primary">Save Issue</button></div>
+<h2>Log Issue</h2>
+<label>Issue<input name="title" required placeholder="What happened?"></label>
+<label>Details<textarea name="details" placeholder="What needs to happen next?"></textarea></label>
+<div class="dialog-actions"><button value="cancel">Cancel</button><button class="accent" value="default">Save</button></div>
 </form></dialog>
 
 <dialog id="contactsDialog"><form method="dialog" id="contactsForm">
-<h3>Edit Quick Contacts</h3><div id="contactsEditor"></div>
-<div class="dialog-actions"><button value="cancel">Cancel</button><button value="default" class="primary">Save Contacts</button></div>
+<h2>Edit Contacts</h2><div id="contactsEditor"></div>
+<div class="dialog-actions"><button value="cancel">Cancel</button><button class="accent" value="default">Save</button></div>
 </form></dialog>
 
 <script src="data.js"></script>

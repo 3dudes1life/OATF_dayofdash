@@ -40,7 +40,7 @@
   </div>
 
   <div class="mini-status">
-    <button data-nav="talent"><span id="checkedCount">0/9</span><small>Talent In</small></button>
+    <button data-nav="people"><span id="checkedCount">0/9</span><small>People In</small></button>
     <button data-nav="issues"><span id="issueCount">0</span><small>Open Issues</small></button>
     <button data-nav="schedule"><span id="doneCount">0/15</span><small>Complete</small></button>
   </div>
@@ -54,33 +54,36 @@
   <div id="scheduleList" class="card-list"></div>
 </section>
 
-<section class="screen" data-screen="talent">
-  <div class="screen-toolbar">
-    <div><span class="kicker">BACKSTAGE</span><h1>Talent</h1></div>
-  </div>
-  <div id="talentList" class="card-list"></div>
-</section>
-
-<section class="screen" data-screen="issues">
-  <div class="screen-toolbar">
+<section class="screen compact-screen" data-screen="issues">
+  <div class="screen-toolbar compact-toolbar">
     <div><span class="kicker">PRODUCTION</span><h1>Issues</h1></div>
     <button id="newIssue" class="add-button">+</button>
   </div>
-  <div class="issue-shortcuts">
+  <div class="issue-shortcuts compact-shortcuts">
     <button data-issue-type="Late Arrival">Late</button>
     <button data-issue-type="Missing Music">Music</button>
     <button data-issue-type="Technical Issue">Tech</button>
     <button data-issue-type="Medical / Safety">Safety</button>
   </div>
-  <div id="issueList" class="card-list"></div>
+  <div id="issueList" class="card-list issue-list"></div>
 </section>
 
-<section class="screen" data-screen="contacts">
+<section class="screen" data-screen="people">
   <div class="screen-toolbar">
-    <div><span class="kicker">ONE-TAP</span><h1>Contacts</h1></div>
-    <button id="editContacts" class="small-button">Edit</button>
+    <div><span class="kicker">TODAY</span><h1>People</h1></div>
+    <button id="editFairContact" class="small-button">Edit Fair</button>
   </div>
-  <div id="contactList" class="contact-grid"></div>
+
+  <section class="fair-contact-wrap">
+    <span class="section-label">OC FAIR CONTACT</span>
+    <div id="fairContactCard"></div>
+  </section>
+
+  <section class="people-wrap">
+    <span class="section-label">PERFORMERS & HOSTS</span>
+    <div id="peopleList" class="card-list people-list"></div>
+  </section>
+
   <div class="handoff-card">
     <span class="kicker">HANDOFF NOTES</span>
     <textarea id="handoffNotes" placeholder="What changed? What needs attention?"></textarea>
@@ -89,12 +92,11 @@
 </section>
 </main>
 
-<nav class="tab-bar">
+<nav class="tab-bar four-tabs">
   <button class="active" data-tab="live"><span>⌂</span><small>Live</small></button>
   <button data-tab="schedule"><span>▤</span><small>Schedule</small></button>
-  <button data-tab="talent"><span>★</span><small>Talent</small></button>
   <button data-tab="issues"><span>!</span><small>Issues</small></button>
-  <button data-tab="contacts"><span>☎</span><small>Contacts</small></button>
+  <button data-tab="people"><span>☎</span><small>People</small></button>
 </nav>
 </div>
 
@@ -111,8 +113,23 @@
 <div class="dialog-actions"><button value="cancel">Cancel</button><button class="accent" value="default">Save</button></div>
 </form></dialog>
 
-<dialog id="contactsDialog"><form method="dialog" id="contactsForm">
-<h2>Edit Contacts</h2><div id="contactsEditor"></div>
+<dialog id="personDialog"><form method="dialog" id="personForm">
+<h2 id="personDialogTitle">Edit Person</h2>
+<input type="hidden" name="id">
+<label>Name<input name="name" required></label>
+<label>Phone<input name="phone" inputmode="tel" placeholder="Phone"></label>
+<label>Email<input name="email" inputmode="email" placeholder="Email"></label>
+<label>Arrival<input name="arrival" placeholder="11:30 AM"></label>
+<label>Notes<textarea name="notes" placeholder="Stage notes, songs, arrival details"></textarea></label>
+<div class="dialog-actions"><button value="cancel">Cancel</button><button class="accent" value="default">Save</button></div>
+</form></dialog>
+
+<dialog id="fairDialog"><form method="dialog" id="fairForm">
+<h2>Edit OC Fair Contact</h2>
+<label>Name<input name="name" required></label>
+<label>Role<input name="role" placeholder="Entertainment Department"></label>
+<label>Phone<input name="phone" inputmode="tel" placeholder="Phone"></label>
+<label>Email<input name="email" inputmode="email" placeholder="Email"></label>
 <div class="dialog-actions"><button value="cancel">Cancel</button><button class="accent" value="default">Save</button></div>
 </form></dialog>
 

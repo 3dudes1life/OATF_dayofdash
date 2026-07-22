@@ -1,19 +1,22 @@
-# OATF OC Fair Day-of V0.2
+# OATF OC Fair Day-of V0.3
 
-A mobile-first production remote for iPhone.
+## What changed
 
-## Replace V0.1
+- Removed the separate Talent tab
+- Added one combined People screen
+- Added one OC Fair contact card
+- Added all performers and hosts beneath it
+- Added real in-app edit forms for people and the fair contact
+- Added extra bottom spacing so Steven and the final cards remain visible
+- Compressed the Issues screen
+- Reduced navigation to Live, Schedule, Issues, and People
 
-Upload all files in this ZIP to the root of the existing standalone GitHub repository and overwrite the old files.
+## Update GitHub Pages
 
-Because this version uses a new service-worker cache, refresh the published site twice after GitHub Pages finishes deploying. On iPhone, fully close the browser tab or Home Screen app and reopen it if the old interface remains visible.
+Upload all files in this ZIP to the repository root and overwrite V0.2.
 
-## V0.2 layout
+After GitHub Pages redeploys:
+1. Refresh twice.
+2. Fully close and reopen the iPhone tab or Home Screen app if V0.2 remains cached.
 
-- Live: current, next, after, delay, ready, complete, and quick issue
-- Schedule: compact interactive run of show
-- Talent: check-in, readiness, calls, texts, email, and editable details
-- Issues: one-tap issue categories
-- Contacts: large call/email cards and handoff notes
-
-All operational changes save locally on that iPhone. Devices do not sync in this version.
+All changes save locally on the device being used.

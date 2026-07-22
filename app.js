@@ -78,6 +78,20 @@ function setSync(mode, label) {
     error: 'Sync Error',
     offline: 'Offline'
   }[mode]);
+
+  const meta = $('#syncMeta');
+  if (!meta) return;
+  if (mode === 'synced') {
+    meta.textContent = lastCloudUpdatedAt
+      ? `Updated ${new Date(lastCloudUpdatedAt).toLocaleTimeString([], {hour:'numeric', minute:'2-digit'})}`
+      : `Connected as ${auth?.deviceName || 'device'}`;
+  } else if (mode === 'saving') {
+    meta.textContent = 'Uploading changes…';
+  } else if (mode === 'error') {
+    meta.textContent = 'Tap to retry';
+  } else {
+    meta.textContent = navigator.onLine ? 'Not connected' : 'No connection';
+  }
 }
 
 function toast(message) {
@@ -354,6 +368,8 @@ function renderLive() {
   $('#checkedCount').textContent = `${checked}/${DATA.talent.length}`;
   $('#issueCount').textContent = state.issues.length;
   $('#doneCount').textContent = `${state.completed.length}/${DATA.schedule.length}`;
+  const preview = $('#liveHandoffPreview');
+  if (preview) preview.textContent = state.handoff?.trim() || 'No handoff notes yet.';
 
   const isReady = state.ready.includes(item.id);
   $('#readyCurrent').classList.toggle('is-on', isReady);

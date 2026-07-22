@@ -15,7 +15,10 @@
 <header class="app-header">
   <div><span class="kicker">OATF · OC FAIR</span><strong id="screenTitle">Live</strong></div>
   <div class="header-right">
-  <button id="syncStatus" class="sync-status offline" type="button"><i></i><span>Offline</span></button>
+  <div class="sync-wrap">
+    <button id="syncStatus" class="sync-status offline" type="button"><i></i><span>Offline</span></button>
+    <small id="syncMeta">Not connected</small>
+  </div>
   <div class="header-clock"><b id="clock">--:--</b><span id="date">Saturday</span></div>
 </div>
 </header>
@@ -46,6 +49,14 @@
     <button data-nav="people"><span id="checkedCount">0/9</span><small>People In</small></button>
     <button data-nav="issues"><span id="issueCount">0</span><small>Open Issues</small></button>
     <button data-nav="schedule"><span id="doneCount">0/15</span><small>Complete</small></button>
+  </div>
+
+  <div class="live-note-card">
+    <div>
+      <span class="kicker">DAY-OF NOTE</span>
+      <small id="liveHandoffPreview">No handoff notes yet.</small>
+    </div>
+    <button data-nav="people">Open Notes</button>
   </div>
 </section>
 

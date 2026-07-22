@@ -119,3 +119,18 @@ dialog form{max-height:80vh;overflow-y:auto}
 @media(max-width:360px){
   .issue-shortcuts{grid-template-columns:1fr}
 }
+
+
+/* V0.6 refinements */
+.sync-wrap{display:grid;justify-items:end;gap:2px}
+.sync-wrap>small{font-size:.48rem;color:var(--muted);white-space:nowrap}
+.live-note-card{margin-top:10px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:12px 13px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+.live-note-card>div{min-width:0}
+.live-note-card small{display:block;margin-top:5px;color:var(--muted);font-size:.67rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.live-note-card button{min-height:38px;padding:0 11px;border-radius:11px;font-size:.62rem}
+.schedule-card.current{box-shadow:0 0 0 1px rgba(255,55,174,.35),0 10px 30px rgba(0,0,0,.16)}
+.schedule-card.current .schedule-time{color:var(--pink)}
+.person-card .avatar{background:linear-gradient(135deg,rgba(255,55,174,.24),rgba(81,219,255,.18))}
+@media(max-width:390px){
+  .sync-wrap>small{display:none}
+}

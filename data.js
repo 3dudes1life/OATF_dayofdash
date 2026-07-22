@@ -2,13 +2,13 @@ window.OATF_DATA = {
   "schedule": [
     {
       "id": "setup",
-      "start": "07:00",
-      "end": "12:00",
+      "start": "08:00",
+      "end": "11:00",
       "title": "Set Up",
       "type": "setup",
       "subtitle": "OATF setup \u00b7 quick welcome",
       "talent": "",
-      "notes": "Load-in, decorate, stage check, and prepare the quick welcome."
+      "notes": "Load-in, decorate, stage check, talent prep, and production briefing."
     },
     {
       "id": "golden-state-squares",

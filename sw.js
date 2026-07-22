@@ -1,4 +1,4 @@
-const CACHE='oatf-oc-dayof-v07';
+const CACHE='oatf-oc-dayof-v08';
 const FILES=['./','index.html','style.css','data.js','app.js','manifest.webmanifest'];
 self.addEventListener('install',event=>{
   self.skipWaiting();

@@ -61,7 +61,7 @@
 </section>
 
 <section class="screen" data-screen="schedule">
-  <div class="screen-toolbar">
+  <div class="screen-toolbar page-toolbar">
     <div><span class="kicker">RUN OF SHOW</span><h1>Schedule</h1></div>
     <button id="resetDay" class="small-button">Reset</button>
   </div>
@@ -69,29 +69,38 @@
 </section>
 
 <section class="screen" data-screen="issues">
-  <div class="screen-toolbar">
+  <div class="screen-toolbar page-toolbar">
     <div><span class="kicker">PRODUCTION</span><h1>Issues</h1></div>
-    <button id="newIssue" class="add-button">+</button>
+    <button id="newIssue" class="add-button" aria-label="Add issue">+</button>
   </div>
 
-  <section class="issue-command-card">
+  <section class="issue-overview-card">
+    <div>
+      <span class="eyebrow">CURRENT STATUS</span>
+      <strong id="issueSummaryCount">0 Open</strong>
+      <small id="issueSummaryText">Production is clear.</small>
+    </div>
+    <div id="issueStatusIcon" class="issue-status-icon clear">✓</div>
+  </section>
+
+  <section class="page-section">
     <span class="section-label">QUICK LOG</span>
     <div class="issue-shortcuts">
-      <button data-issue-type="Late Arrival">Late Arrival</button>
-      <button data-issue-type="Missing Music">Missing Music</button>
-      <button data-issue-type="Technical Issue">Technical</button>
-      <button data-issue-type="Medical / Safety">Safety</button>
+      <button data-issue-type="Late Arrival"><span>Late</span><small>Arrival</small></button>
+      <button data-issue-type="Missing Music"><span>Missing</span><small>Music</small></button>
+      <button data-issue-type="Technical Issue"><span>Technical</span><small>Sound / Stage</small></button>
+      <button data-issue-type="Medical / Safety"><span>Safety</span><small>Medical</small></button>
     </div>
   </section>
 
-  <section class="issue-open-wrap">
+  <section class="page-section issue-open-wrap">
     <span class="section-label">OPEN ISSUES</span>
     <div id="issueList" class="card-list issue-list"></div>
   </section>
 </section>
 
 <section class="screen" data-screen="people">
-  <div class="screen-toolbar">
+  <div class="screen-toolbar page-toolbar">
     <div><span class="kicker">TODAY</span><h1>People</h1></div>
     <button id="editFairContact" class="small-button">Edit Fair</button>
   </div>

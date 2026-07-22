@@ -1,36 +1,56 @@
-# OATF OC Fair Day-of V0.7
+# OATF OC Fair Day-of V0.8
 
-## Critical scrolling fix
+## Full UX cleanup
 
-The Cloudflare poll runs every five seconds. In earlier versions, each poll triggered a render and `showScreen()` forced the active screen to the top.
+V0.8 is a unified visual pass across the entire app rather than another single-page patch.
 
-V0.7 fixes that by:
+### Shared design system
 
-- removing forced scroll-to-top behavior
-- remembering a separate scroll position for Live, Schedule, Issues, and People
-- restoring the exact active-screen position after Cloudflare updates
-- preserving each tab's prior position when switching between tabs
-- continuously tracking scroll position while the user moves through a page
+- Consistent page padding
+- Consistent card width
+- Consistent rounded corners
+- Consistent headers and section labels
+- Consistent button height
+- Improved desktop phone preview sizing
+- Better bottom spacing above the tab bar
 
-This means entering phone numbers, emails, arrival details, and notes should no longer throw the People page back to the top.
+### Issues page rebuild
 
-## Existing V0.6 updates retained
+- Full-width status card
+- Live open-issue count
+- Clear / alert status indicator
+- Larger 2×2 quick-log controls
+- Full-width open-issues section
+- Larger empty state
+- Larger issue cards
+- No compact or shrunken layout
 
-- Setup is 8:00 AM–11:00 AM
-- Cloudflare shared syncing
-- Sync status and last update time
-- Day-of Note preview
-- Updated Issues layout
+### Other screen improvements
+
+- Stronger Live card hierarchy
+- More consistent Next / After cards
+- Larger schedule cards
+- Better current-schedule emphasis
+- More consistent People cards and actions
+- Scroll-position fix from V0.7 retained
+
+### Schedule
+
+- Setup remains 8:00 AM–11:00 AM
+
+### Cloud sync
+
+Connected to:
+
+https://oatf-dayof-sync.round-disk-6577.workers.dev
 
 ## Install
 
-Upload every file in this ZIP to the GitHub repository root and overwrite V0.6.
+Upload every file in this ZIP to the repository root and overwrite V0.7.
 
-After deployment:
+After GitHub Pages deploys:
 
 1. Refresh twice.
-2. Fully close and reopen the Safari tab or Home Screen app.
-3. Scroll halfway down People.
-4. Wait at least 10 seconds.
-5. Confirm the page remains in the same position.
-6. Edit and save a lower performer to confirm it stays nearby.
+2. Fully close and reopen Safari or the Home Screen app.
+3. Confirm the Issues page has a large status card and full-width quick-log controls.
+4. Scroll down People and wait at least 10 seconds to confirm the V0.7 scroll fix remains active.

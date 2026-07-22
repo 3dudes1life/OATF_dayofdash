@@ -429,7 +429,23 @@ function renderSchedule() {
 }
 
 function renderIssues() {
-  $('#issueList').innerHTML = state.issues.length
+  const count = state.issues.length;
+  const countEl = $('#issueSummaryCount');
+  const textEl = $('#issueSummaryText');
+  const iconEl = $('#issueStatusIcon');
+
+  if (countEl) countEl.textContent = `${count} Open`;
+  if (textEl) {
+    textEl.textContent = count
+      ? `${count === 1 ? 'One issue needs' : 'Issues need'} production attention.`
+      : 'Production is clear.';
+  }
+  if (iconEl) {
+    iconEl.textContent = count ? '!' : '✓';
+    iconEl.className = `issue-status-icon ${count ? 'alert' : 'clear'}`;
+  }
+
+  $('#issueList').innerHTML = count
     ? state.issues.map(issue => `<article class="issue-card">
         <i class="issue-dot"></i>
         <div>

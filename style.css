@@ -134,3 +134,315 @@ dialog form{max-height:80vh;overflow-y:auto}
 @media(max-width:390px){
   .sync-wrap>small{display:none}
 }
+
+
+/* =========================================================
+   V0.8 — Unified mobile UX system
+   ========================================================= */
+
+:root{
+  --page-pad:14px;
+  --card-radius:20px;
+  --card-pad:15px;
+  --tap:46px;
+}
+
+.screen{
+  padding:14px var(--page-pad) calc(34px + var(--safe-bottom));
+  scroll-padding-bottom:calc(var(--dock) + 28px);
+}
+
+.page-toolbar{
+  min-height:66px;
+  padding:2px 2px 14px;
+  margin:0;
+}
+.page-toolbar h1{
+  margin:3px 0 0;
+  font-size:1.82rem;
+  line-height:1;
+  letter-spacing:-.035em;
+}
+
+.section-label{
+  margin:0 2px 9px;
+  font-size:.61rem;
+  letter-spacing:.14em;
+}
+
+.page-section{
+  width:100%;
+  margin-bottom:14px;
+}
+
+.card-list{
+  width:100%;
+  gap:10px;
+}
+
+/* Live */
+.live-panel{
+  width:100%;
+  border-radius:24px;
+  padding:18px;
+}
+.up-next{
+  width:100%;
+  gap:10px;
+}
+.up-next article{
+  border-radius:19px;
+  min-height:120px;
+  padding:15px;
+}
+.mini-status{
+  width:100%;
+  gap:8px;
+}
+.mini-status button{
+  min-height:66px;
+  border-radius:16px;
+}
+.live-note-card{
+  width:100%;
+  border-radius:18px;
+  padding:13px 14px;
+}
+
+/* Schedule */
+.schedule-card{
+  width:100%;
+  border-radius:19px;
+  padding:15px;
+}
+.schedule-top{
+  grid-template-columns:66px minmax(0,1fr) auto;
+  gap:11px;
+}
+.schedule-time{
+  font-size:.72rem;
+}
+.schedule-copy b{
+  font-size:.94rem;
+  line-height:1.2;
+}
+.schedule-copy small{
+  font-size:.69rem;
+  line-height:1.42;
+}
+.card-actions button{
+  min-height:44px;
+  border-radius:12px;
+}
+
+/* Issues */
+.screen[data-screen="issues"]{
+  padding-bottom:calc(38px + var(--safe-bottom));
+}
+.issue-overview-card{
+  width:100%;
+  min-height:116px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:18px;
+  margin-bottom:14px;
+  border:1px solid rgba(255,62,152,.28);
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 95% 0%,rgba(255,62,152,.18),transparent 10rem),
+    linear-gradient(145deg,rgba(31,20,35,.98),rgba(17,17,24,.98));
+}
+.issue-overview-card .eyebrow{
+  display:block;
+  margin-bottom:7px;
+  color:var(--pink);
+  font-size:.6rem;
+  font-weight:900;
+  letter-spacing:.14em;
+}
+.issue-overview-card strong{
+  display:block;
+  font-size:1.65rem;
+  line-height:1;
+  letter-spacing:-.035em;
+}
+.issue-overview-card small{
+  display:block;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:.72rem;
+}
+.issue-status-icon{
+  flex:0 0 54px;
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  font-size:1.35rem;
+  font-weight:950;
+}
+.issue-status-icon.clear{
+  color:var(--green);
+  background:rgba(82,226,157,.12);
+  border:1px solid rgba(82,226,157,.32);
+}
+.issue-status-icon.alert{
+  color:var(--yellow);
+  background:rgba(255,199,90,.12);
+  border:1px solid rgba(255,199,90,.34);
+}
+.issue-shortcuts{
+  width:100%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+  margin:0;
+}
+.issue-shortcuts button{
+  min-height:72px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  padding:12px 14px;
+  border-radius:16px;
+  background:var(--panel);
+  text-align:left;
+}
+.issue-shortcuts button span{
+  display:block;
+  font-size:.78rem;
+  font-weight:900;
+}
+.issue-shortcuts button small{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:.6rem;
+  font-weight:700;
+}
+.issue-open-wrap{
+  margin-bottom:0;
+}
+.issue-list{
+  width:100%;
+  padding-bottom:24px;
+}
+.issue-list .empty{
+  width:100%;
+  min-height:150px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  border-radius:20px;
+  background:var(--panel);
+  border:1px dashed rgba(255,255,255,.12);
+  font-size:.76rem;
+}
+.issue-list .empty::before{
+  content:"✓";
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  margin-bottom:11px;
+  border-radius:50%;
+  color:var(--green);
+  background:rgba(82,226,157,.1);
+  border:1px solid rgba(82,226,157,.25);
+  font-size:1rem;
+  font-weight:950;
+}
+.issue-card{
+  width:100%;
+  min-height:82px;
+  border-radius:19px;
+  padding:15px;
+}
+.issue-card b{
+  font-size:.92rem;
+}
+.issue-card small{
+  font-size:.68rem;
+  line-height:1.42;
+}
+
+/* People */
+.fair-contact-card,
+.person-card,
+.handoff-card{
+  width:100%;
+  border-radius:20px;
+  padding:15px;
+}
+.people-list{
+  width:100%;
+  padding-bottom:18px;
+}
+.person-head{
+  grid-template-columns:46px minmax(0,1fr) auto;
+}
+.avatar{
+  width:46px;
+  height:46px;
+}
+.person-copy b{
+  font-size:.94rem;
+}
+.person-copy small{
+  font-size:.68rem;
+  line-height:1.42;
+}
+.person-actions{
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.person-actions button,
+.person-actions a{
+  min-height:44px;
+  border-radius:12px;
+}
+.person-edit{
+  min-width:54px;
+  min-height:38px;
+}
+
+/* Global controls */
+button{
+  min-height:var(--tap);
+}
+.small-button{
+  min-height:40px;
+}
+.add-button{
+  width:44px;
+  min-height:44px;
+}
+.tab-bar{
+  padding-left:10px;
+  padding-right:10px;
+}
+.tab-bar button{
+  min-height:58px;
+}
+
+/* Desktop preview stays phone-like without looking tiny */
+@media(min-width:700px){
+  .app-shell{
+    width:min(430px,92vw);
+    max-width:430px;
+    height:min(860px,94vh);
+  }
+}
+
+@media(max-width:370px){
+  :root{--page-pad:11px}
+  .issue-shortcuts{grid-template-columns:1fr 1fr}
+  .issue-shortcuts button{min-height:66px;padding:10px 11px}
+  .up-next{grid-template-columns:1fr}
+}

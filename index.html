@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09090f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>OATF OC Fair Day-of Central</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div><span class="eyebrow">OATF · OC FAIR · JULY 25, 2026</span><h1>Day-of Central</h1></div>
+  <div class="clock"><strong id="clock">--:--</strong><span id="date">Saturday</span></div>
+</header>
+
+<main>
+<section class="live-card" id="live">
+  <div class="live-badge">LIVE NOW</div>
+  <div class="live-content">
+    <div><span class="eyebrow" id="liveType">Production</span><h2 id="liveTitle">Loading…</h2><p id="liveSubtitle"></p></div>
+    <div class="live-time"><strong id="liveRange">--</strong><span id="remaining">--</span></div>
+  </div>
+  <div class="actions">
+    <button class="primary" id="completeCurrent">Complete</button>
+    <button id="readyCurrent">Stage Ready</button>
+    <button id="delay5">+5 Min</button>
+    <button id="delay10">+10 Min</button>
+  </div>
+</section>
+
+<section class="next-grid">
+  <article><span class="eyebrow">NEXT</span><h3 id="nextTitle">—</h3><p id="nextMeta">—</p></article>
+  <article><span class="eyebrow">AFTER</span><h3 id="afterTitle">—</h3><p id="afterMeta">—</p></article>
+</section>
+
+<section class="progress-card">
+  <div><span class="eyebrow">TODAY'S PROGRESS</span><strong id="progressText">0 of 0 complete</strong></div>
+  <div class="progress"><i id="progressBar"></i></div><span id="progressPercent">0%</span>
+</section>
+
+<section class="panel">
+  <header><div><span class="eyebrow">RUN OF SHOW</span><h3>Full Schedule</h3></div><button class="link" id="resetDay">Reset Day</button></header>
+  <div id="scheduleList" class="schedule-list"></div>
+</section>
+
+<section class="panel">
+  <header><div><span class="eyebrow">TALENT</span><h3>Check-In & Readiness</h3></div></header>
+  <div id="talentList" class="talent-list"></div>
+</section>
+
+<section class="panel">
+  <header><div><span class="eyebrow">ISSUES</span><h3>Quick Issue Log</h3></div><button class="link" id="newIssue">+ Add</button></header>
+  <div id="issueList" class="issue-list"></div>
+</section>
+
+<section class="panel">
+  <header><div><span class="eyebrow">CONTACTS</span><h3>Quick Contacts</h3></div><button class="link" id="editContacts">Edit</button></header>
+  <div id="contactList" class="contact-list"></div>
+</section>
+
+<section class="panel">
+  <header><div><span class="eyebrow">HANDOFF</span><h3>Production Notes</h3></div></header>
+  <textarea id="handoffNotes" placeholder="What changed, what is blocked, and what should happen next?"></textarea>
+  <div class="actions"><button id="copyHandoff">Copy</button><button class="primary" id="saveHandoff">Save</button></div>
+</section>
+</main>
+
+<nav class="dock">
+  <button data-jump="live">Live</button>
+  <button data-jump="scheduleList">Schedule</button>
+  <button data-jump="talentList">Talent</button>
+  <button data-jump="issueList">Issues</button>
+</nav>
+</div>
+
+<dialog id="issueDialog"><form method="dialog" id="issueForm">
+<h3>Log Production Issue</h3>
+<label>Title<input name="title" required placeholder="What happened?"></label>
+<label>Severity<select name="severity"><option>Watch</option><option>High</option><option>Info</option></select></label>
+<label>Details<textarea name="details" placeholder="Context or next action"></textarea></label>
+<div class="dialog-actions"><button value="cancel">Cancel</button><button value="default" class="primary">Save Issue</button></div>
+</form></dialog>
+
+<dialog id="contactsDialog"><form method="dialog" id="contactsForm">
+<h3>Edit Quick Contacts</h3><div id="contactsEditor"></div>
+<div class="dialog-actions"><button value="cancel">Cancel</button><button value="default" class="primary">Save Contacts</button></div>
+</form></dialog>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

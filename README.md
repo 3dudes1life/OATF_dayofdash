@@ -1,41 +1,36 @@
-# OATF OC Fair Day-of V0.6
+# OATF OC Fair Day-of V0.7
 
-## Schedule correction
+## Critical scrolling fix
 
-- Set Up changed from 7:00 AM–12:00 PM to 8:00 AM–11:00 AM
-- Setup subtitle changed to `OATF setup · production prep`
-- Setup notes now include load-in, decorating, stage check, talent prep, and production briefing
+The Cloudflare poll runs every five seconds. In earlier versions, each poll triggered a render and `showScreen()` forced the active screen to the top.
 
-## Additional V0.6 improvements
+V0.7 fixes that by:
 
-- Added last-sync information under the sync badge
-- Added a Day-of Note preview on the Live screen
-- Added a direct Open Notes button
-- Strengthened the current schedule card treatment
-- Refined performer avatar styling
-- Updated the service worker cache to V0.6
+- removing forced scroll-to-top behavior
+- remembering a separate scroll position for Live, Schedule, Issues, and People
+- restoring the exact active-screen position after Cloudflare updates
+- preserving each tab's prior position when switching between tabs
+- continuously tracking scroll position while the user moves through a page
 
-## Cloud sync
+This means entering phone numbers, emails, arrival details, and notes should no longer throw the People page back to the top.
 
-Connected to:
+## Existing V0.6 updates retained
 
-https://oatf-dayof-sync.round-disk-6577.workers.dev
-
-## GitHub verification
-
-The live repository was verified as:
-
-3dudes1life/OATF_dayofdash
-
-The current live `data.js` was checked and confirmed to still contain the old setup time of `07:00–12:00` before this V0.6 package was created.
+- Setup is 8:00 AM–11:00 AM
+- Cloudflare shared syncing
+- Sync status and last update time
+- Day-of Note preview
+- Updated Issues layout
 
 ## Install
 
-Upload every file in this ZIP to the repository root and overwrite V0.5.
+Upload every file in this ZIP to the GitHub repository root and overwrite V0.6.
 
-After GitHub Pages deploys:
+After deployment:
 
 1. Refresh twice.
-2. Fully close and reopen Safari.
-3. Reopen the Home Screen app.
-4. Delete and re-add the Home Screen icon only if the old schedule still appears.
+2. Fully close and reopen the Safari tab or Home Screen app.
+3. Scroll halfway down People.
+4. Wait at least 10 seconds.
+5. Confirm the page remains in the same position.
+6. Edit and save a lower performer to confirm it stays nearby.

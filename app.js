@@ -37,6 +37,12 @@ let syncBusy = false;
 let lastCloudUpdatedAt = '';
 let pollTimer = null;
 let pendingLocalSave = false;
+const scrollPositions = {
+  live: 0,
+  schedule: 0,
+  issues: 0,
+  people: 0
+};
 
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
@@ -306,13 +312,35 @@ function personData(person) {
   return {...person, ...(state.people[person.id] || {})};
 }
 
-function showScreen(name) {
+function showScreen(name, {userNavigation = false} = {}) {
+  const currentName = state.screen || 'live';
+  const currentScreen = document.querySelector(`.screen[data-screen="${currentName}"]`);
+
+  if (currentScreen && currentName !== name) {
+    scrollPositions[currentName] = currentScreen.scrollTop;
+  }
+
   state.screen = name;
-  $$('.screen').forEach(screen => screen.classList.toggle('active', screen.dataset.screen === name));
-  $$('.tab-bar button').forEach(button => button.classList.toggle('active', button.dataset.tab === name));
-  $('#screenTitle').textContent = name === 'people' ? 'People' : name[0].toUpperCase() + name.slice(1);
+  $$('.screen').forEach(screen =>
+    screen.classList.toggle('active', screen.dataset.screen === name)
+  );
+  $$('.tab-bar button').forEach(button =>
+    button.classList.toggle('active', button.dataset.tab === name)
+  );
+
+  $('#screenTitle').textContent =
+    name === 'people' ? 'People' : name[0].toUpperCase() + name.slice(1);
+
   storeState();
-  document.querySelector(`.screen[data-screen="${name}"]`)?.scrollTo(0, 0);
+
+  const nextScreen = document.querySelector(`.screen[data-screen="${name}"]`);
+  if (nextScreen) {
+    requestAnimationFrame(() => {
+      nextScreen.scrollTop = userNavigation
+        ? scrollPositions[name] || 0
+        : scrollPositions[name] ?? nextScreen.scrollTop;
+    });
+  }
 }
 
 function renderClock() {
@@ -452,11 +480,15 @@ function renderPeople() {
 }
 
 function render() {
+  const activeName = state.screen || 'live';
+  const activeScreen = document.querySelector(`.screen[data-screen="${activeName}"]`);
+  if (activeScreen) scrollPositions[activeName] = activeScreen.scrollTop;
+
   renderLive();
   renderSchedule();
   renderIssues();
   renderPeople();
-  showScreen(state.screen || 'live');
+  showScreen(activeName, {userNavigation: false});
 }
 
 function addIssue(title, details = '') {
@@ -467,7 +499,7 @@ function addIssue(title, details = '') {
     time: new Date().toLocaleTimeString([], {hour: 'numeric', minute: '2-digit'})
   });
   save();
-  showScreen('issues');
+  showScreen('issues', {userNavigation: true});
 }
 
 function openPersonEditor(id) {
@@ -514,16 +546,22 @@ Notes:
 ${$('#handoffNotes').value || 'None'}`;
 }
 
+$$('.screen').forEach(screen => {
+  screen.addEventListener('scroll', () => {
+    scrollPositions[screen.dataset.screen] = screen.scrollTop;
+  }, {passive: true});
+});
+
 document.addEventListener('click', event => {
   const tab = event.target.closest('[data-tab]');
   if (tab) {
-    showScreen(tab.dataset.tab);
+    showScreen(tab.dataset.tab, {userNavigation: true});
     return;
   }
 
   const nav = event.target.closest('[data-nav]');
   if (nav) {
-    showScreen(nav.dataset.nav);
+    showScreen(nav.dataset.nav, {userNavigation: true});
     return;
   }
 

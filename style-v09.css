@@ -629,3 +629,46 @@ button{
     padding:11px 12px!important;
   }
 }
+
+
+/* =========================================================
+   V0.10 — People page handoff visibility fix
+   ========================================================= */
+
+.screen[data-screen="people"]{
+  padding-bottom:calc(var(--dock) + var(--safe-bottom) + 190px)!important;
+  scroll-padding-bottom:calc(var(--dock) + var(--safe-bottom) + 190px)!important;
+}
+
+.screen[data-screen="people"]::after{
+  content:"";
+  display:block;
+  height:calc(var(--dock) + var(--safe-bottom) + 150px);
+  width:100%;
+}
+
+.screen[data-screen="people"] .handoff-card{
+  width:100%;
+  margin:14px 0 0!important;
+  padding:15px!important;
+  border-radius:20px!important;
+}
+
+.screen[data-screen="people"] .handoff-card textarea{
+  display:block;
+  width:100%;
+  min-height:140px!important;
+  margin-top:10px!important;
+}
+
+.screen[data-screen="people"] .handoff-card .quick-row{
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:8px!important;
+  margin-top:10px!important;
+}
+
+.screen[data-screen="people"] .handoff-card .quick-row button{
+  width:100%;
+  min-height:46px;
+}

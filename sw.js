@@ -1,5 +1,5 @@
-const CACHE='oatf-oc-dayof-v08';
-const FILES=['./','index.html','style.css','data.js','app.js','manifest.webmanifest'];
+const CACHE='oatf-oc-dayof-v09';
+const FILES=['./','index.html','style-v09.css','data.js','app-v09.js','manifest.webmanifest'];
 self.addEventListener('install',event=>{
   self.skipWaiting();
   event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)));
@@ -14,7 +14,7 @@ self.addEventListener('activate',event=>{
 self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET') return;
   event.respondWith(
-    fetch(event.request)
+    fetch(event.request,{cache:'no-store'})
       .then(response=>{
         const copy=response.clone();
         caches.open(CACHE).then(cache=>cache.put(event.request,copy));

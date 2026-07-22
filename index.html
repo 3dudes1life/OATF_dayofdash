@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>OATF Day-of</title>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style-v09.css">
 </head>
 <body>
 <div class="app-shell">
@@ -75,12 +75,12 @@
   </div>
 
   <section class="issue-overview-card">
-    <div>
+    <div class="issue-overview-copy">
       <span class="eyebrow">CURRENT STATUS</span>
-      <strong id="issueSummaryCount">0 Open</strong>
+      <strong id="issueSummaryCount">0 Open Issues</strong>
       <small id="issueSummaryText">Production is clear.</small>
     </div>
-    <div id="issueStatusIcon" class="issue-status-icon clear">✓</div>
+    <span id="issueStatusPill" class="issue-status-pill clear">CLEAR</span>
   </section>
 
   <section class="page-section">
@@ -182,6 +182,6 @@
 </dialog>
 
 <script src="data.js"></script>
-<script src="app.js"></script>
+<script src="app-v09.js"></script>
 </body>
 </html>

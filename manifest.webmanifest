@@ -1,9 +1,9 @@
 {
-  "name": "OATF OC Fair Day-of V0.8",
+  "name": "OATF OC Fair Day-of V0.9",
   "short_name": "OATF Day-of",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#08080d",
   "theme_color": "#08080d",
-  "description": "Unified mobile-first production control for OATF at the OC Fair."
+  "description": "Cache-safe, unified mobile production control for OATF at the OC Fair."
 }

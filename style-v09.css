@@ -672,3 +672,36 @@ button{
   width:100%;
   min-height:46px;
 }
+
+
+/* =========================================================
+   V0.11 — Tightened People page footer spacing
+   ========================================================= */
+
+.screen[data-screen="people"]{
+  padding-bottom:calc(var(--safe-bottom) + 34px)!important;
+  scroll-padding-bottom:calc(var(--dock) + var(--safe-bottom) + 28px)!important;
+}
+
+.screen[data-screen="people"]::after{
+  content:"";
+  display:block;
+  width:100%;
+  height:34px!important;
+}
+
+.screen[data-screen="people"] .handoff-card{
+  margin:14px 0 0!important;
+}
+
+.screen[data-screen="people"] .handoff-card textarea{
+  min-height:122px!important;
+}
+
+.screen[data-screen="people"] .handoff-card .quick-row{
+  margin-top:9px!important;
+}
+
+.screen[data-screen="people"] .handoff-card .quick-row button{
+  min-height:44px!important;
+}
